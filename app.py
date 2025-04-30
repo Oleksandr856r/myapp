@@ -13,12 +13,11 @@ def start_flask():
     t.start()
     time.sleep(2)
 
-# Перевірка, чи порт зайнятий
+
 def is_port_open(host, port):
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         return sock.connect_ex((host, port)) == 0
 
-# Запуск Flask, якщо ще не працює
 if not is_port_open("localhost", 8000):
     start_flask()
 
